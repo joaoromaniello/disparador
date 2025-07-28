@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Criar instância</title>
+</head>
+<body>
+  <h1>Criar nova instância</h1>
+  <form method="POST" action="/init">
+    <input type="text" name="nome" placeholder="Nome da instância" required />
+    <button type="submit">Criar</button>
+  </form>
+
+  <% if (usuariosConectados && usuariosConectados.length > 0) { %>
+    <h2>Usuários conectados</h2>
+    <table border="1" cellpadding="8" style="margin-top: 24px;">
+      <tr>
+        <th>Número conectado</th>
+        <th>Token</th>
+        <th>Ação</th>
+      </tr>
+      <% usuariosConectados.forEach(u => { %>
+        <tr>
+          <td><%= u.numeroConectado %></td>
+          <td style="font-size:0.95em"><%= u.token %></td>
+          <td>
+            <a href="/disparo?token=<%= u.token %>" target="_blank">
+              <button type="button">Disparar</button>
+            </a>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  <% } %>
+</body>
+</html>

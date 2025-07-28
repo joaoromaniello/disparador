@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disparador Moderno</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ------------------- */
+    /* Variáveis de Tema  */
+    /* ------------------- */
+    :root {
+      --color-primary: #0052cc;
+      --color-primary-dark: #0041a3;
+      --color-secondary: #f0f4f8;
+      --color-background: #f8f9fa;
+      --color-surface: #ffffff;
+      --color-text: #343a40;
+      --color-text-light: #6c757d;
+      --color-border: #dee2e6;
+      --color-success: #28a745;
+      --color-error: #dc3545;
+      --font-family: 'Inter', sans-serif;
+      --border-radius: 8px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.2s ease;
+    }
+
+    /* ----------------- */
+    /* Estilos Globais  */
+    /* ----------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* --------------- */
+    /* Cabeçalho     */
+    /* --------------- */
+    header {
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .connection-status {
+      font-weight: 500;
+      color: var(--color-text-light);
+      background-color: var(--color-secondary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    /* ------------------- */
+    /* Estrutura de Abas  */
+    /* ------------------- */
+    .tab-nav {
+      display: flex;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 24px;
+    }
+
+    .tab-button {
+      padding: 12px 20px;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      transition: all var(--transition-speed);
+      margin-bottom: -1px; /* Alinha com a borda inferior do container */
+    }
+
+    .tab-button:hover {
+      color: var(--color-primary);
+    }
+
+    .tab-button.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* -------------------- */
+    /* Formulário e Campos */
+    /* -------------------- */
+    .form-card {
+      background: var(--color-surface);
+      padding: 28px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+    }
+    
+    input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .primary-button {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color var(--transition-speed);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .primary-button:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    /* ----------------- */
+    /* Componentes Específicos */
+    /* ----------------- */
+    .checkbox-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    
+    .checkbox-control label {
+        margin-bottom: 0;
+        font-weight: 500;
+    }
+    
+    .checkbox-control input[type="checkbox"] {
+        width: 1.2em;
+        height: 1.2em;
+        accent-color: var(--color-primary);
+    }
+    
+    #listaNumeros {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid var(--color-secondary);
+      border-radius: var(--border-radius);
+      background-color: var(--color-background);
+    }
+    
+    #listaNumeros p {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    /* -------------------------------- */
+    /* Sistema de Notificação (Toast) */
+    /* -------------------------------- */
+    #toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 90vw;
+    }
+
+    .toast {
+      padding: 16px 24px;
+      color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateX(100%);
+      animation: slideIn 0.3s forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .toast.success {
+      background-color: var(--color-success);
+    }
+
+    .toast.error {
+      background-color: var(--color-error);
+    }
+
+    /* ----------------- */
+    /* Responsividade    */
+    /* ----------------- */
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px auto;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .form-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <h1>Disparador</h1>
+      <p class="connection-status"><strong>Número conectado:</strong> <%= numeroConectado %></p>
+    </header>
+    <a href="/<%= token %>/disparos" target="_blank" class="primary-button" style="margin-bottom: 24px;">
+      📋 Visualizar Disparos
+    </a>
+    <div class="tab-container">
+      <nav class="tab-nav">
+        <button class="tab-button active" data-tab="texto">Disparo de Texto</button>
+        <button class="tab-button" data-tab="midia">Disparo de Mídia</button>
+      </nav>
+
+      <div class="tab-content">
+        <div id="texto" class="tab-pane active">
+          <form id="formTexto" class="form-card">
+            <input type="hidden" name="token" value="<%= token %>">
+            
+            <div class="form-group">
+                <label for="tipoEnvio">Tipo de Envio</label>
+                 <div class="checkbox-control">
+                    <input type="checkbox" id="emMassa">
+                    <label for="emMassa">Enviar em massa (para múltiplos contatos)</label>
+                </div>
+            </div>
+
+            <div class="form-group" id="containerNumeroIndividual">
+              <label for="number">Número Individual (ex: 5534999998888)</label>
+              <input type="text" name="number" id="number">
+            </div>
+            
+            <div id="listaNumeros" style="display: none;">
+                <p>Selecione os contatos da lista:</p>
+                <div class="checkbox-control">
+                    <input type="checkbox" class="numeroCheckbox" value="5516992337024">
+                    <label>João</label>
+                </div>
+                <div class="checkbox-control">
+                    <input type="checkbox" class="numeroCheckbox" value="5534984277746">
+                    <label>Maria</label>
+                </div>
+                <div class="checkbox-control">
+                    <input type="checkbox" class="numeroCheckbox" value="5534984111111">
+                    <label>Teste</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="listaSelect">Usar Mensagem Padrão</label>
+                <select id="listaSelect">
+                    <option value="">-- Escolha uma mensagem rápida --</option>
+                    <option value="padrao">Padrão</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="carnes">Carnes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <label for="text">Mensagem</label>
+              <textarea name="text" id="text" required></textarea>
+            </div>
+            
+             <div class="checkbox-control">
+                <input type="checkbox" id="agendarEnvio">
+                <label for="agendarEnvio">Agendar envio para 1 minuto depois</label>
+            </div>
+
+            <button type="submit" class="primary-button" style="margin-top: 24px;">Enviar Mensagem</button>
+          </form>
+        </div>
+
+        <div id="midia" class="tab-pane">
+          <form id="formMidia" class="form-card">
+            <input type="hidden" name="token" value="<%= token %>">
+            <div class="form-group">
+              <label for="numberMidia">Número (ex: 5534999998888)</label>
+              <input type="text" name="number" id="numberMidia" required>
+            </div>
+            <div class="form-group">
+              <label for="fileMidia">URL da Imagem</label>
+              <input type="url" name="file" id="fileMidia" required placeholder="https://exemplo.com/imagem.jpg">
+            </div>
+            <div class="form-group">
+              <label for="textMidia">Legenda (opcional)</label>
+              <input type="text" name="text" id="textMidia">
+            </div>
+            <button type="submit" class="primary-button">Enviar Mídia</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <div id="toast-container"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ------------------------------------
+  // Sistema de Notificação (Toast)
+  // ------------------------------------
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(120%)';
+      setTimeout(() => toast.remove(), 500); // Remove from DOM after animation
+    }, 4000);
+  }
+
+  // ------------------------------------
+  // Lógica das Abas
+  // ------------------------------------
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Desativa todos
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+
+      // Ativa o clicado
+      button.classList.add('active');
+      const targetPane = document.getElementById(button.dataset.tab);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+
+  // ------------------------------------
+  // Lógica do Formulário de Texto
+  // ------------------------------------
+  const formTexto = document.getElementById('formTexto');
+  const listaSelect = document.getElementById('listaSelect');
+  const textInput = document.getElementById('text');
+  const emMassaCheckbox = document.getElementById('emMassa');
+  const listaNumerosDiv = document.getElementById('listaNumeros');
+  const numeroIndividualInput = document.getElementById('number');
+  const containerNumeroIndividual = document.getElementById('containerNumeroIndividual');
+
+  const listas = {
+    padrao: "Olá! Confira nossa lista de produtos atualizada!",
+    bebidas: "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+    carnes: "🥩 Lista de Carnes:\n- Picanha\n- Fraldinha\n- Costela"
+  };
+
+  listaSelect.addEventListener('change', function () {
+    const valor = this.value;
+    textInput.value = listas[valor] || textInput.value;
+  });
+
+  emMassaCheckbox.addEventListener('change', function () {
+    const isChecked = this.checked;
+    listaNumerosDiv.style.display = isChecked ? 'block' : 'none';
+    containerNumeroIndividual.style.display = isChecked ? 'none' : 'block';
+    numeroIndividualInput.disabled = isChecked;
+    numeroIndividualInput.required = !isChecked;
+    if (!isChecked) {
+        numeroIndividualInput.value = ''; // Limpa o campo individual ao desmarcar
+    }
+  });
+  
+  // Seta o estado inicial
+  emMassaCheckbox.dispatchEvent(new Event('change'));
+
+  formTexto.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const token = formTexto.querySelector('input[name="token"]').value;
+    const text = textInput.value;
+    const agendar = document.getElementById('agendarEnvio').checked;
+
+    if (emMassaCheckbox.checked) {
+      // Envio em massa
+      const checkboxes = document.querySelectorAll('.numeroCheckbox:checked');
+      const numbers = Array.from(checkboxes).map(cb => cb.value + '@s.whatsapp.net');
+
+      if (numbers.length === 0) {
+        return showToast('Selecione pelo menos um número para envio em massa.', 'error');
+      }
+
+      const payload = {
+        numbers,
+        type: 'text',
+        text,
+        delayMin: 5,
+        delayMax: 10,
+        info: 'disparo-massa'
+      };
+      
+      if (agendar) {
+        payload.scheduled_for = Date.now() + 1 * 60 * 1000;
+      }
+      
+      apiRequest('/disparo/massa', { token, payload });
+
+    } else {
+      // Envio individual
+      const number = numeroIndividualInput.value;
+      if (!number) {
+        return showToast('Por favor, informe o número.', 'error');
+      }
+      apiRequest('/disparo/texto', { token, number, text });
+    }
+  });
+
+  // ------------------------------------
+  // Lógica do Formulário de Mídia
+  // ------------------------------------
+  const formMidia = document.getElementById('formMidia');
+  formMidia.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    apiRequest('/disparo/midia', data);
+  });
+  
+
+async function apiRequest(endpoint, body) {
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    const resClone = res.clone();
+
+    let responseData;
+    try {
+      responseData = await res.json();
+    } catch {
+      const txt = await resClone.text();
+      throw new Error(txt);
+    }
+
+    if (responseData.error) {
+      throw new Error(responseData.error);
+    }
+
+    if (!res.ok) {
+      throw new Error(responseData.message || 'Ocorreu um erro no servidor.');
+    }
+
+    let successMessage = responseData.message || 'Disparo realizado com sucesso!';
+    if (responseData.data && responseData.data.recipient) {
+      successMessage += ` Para: ${responseData.data.recipient}`;
+    }
+    showToast(successMessage, 'success');
+
+  } catch (err) {
+    // Mostra mensagem de erro para o usuário
+    console.error('Erro na requisição:', err);
+    showToast(err.message || 'Erro ao processar a requisição.', 'error');
+  }
+}
+
+
+});
+</script>
+
+</body>
+</html>

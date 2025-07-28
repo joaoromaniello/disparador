@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico de Disparos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-primary: #0052cc;
+      --color-background: #f8f9fa;
+      --color-surface: #ffffff;
+      --color-text: #343a40;
+      --color-text-light: #6c757d;
+      --color-border: #dee2e6;
+      --color-sent: #28a745;
+      --color-pending: #ffc107;
+      --color-error: #dc3545;
+      --font-family: 'Inter', sans-serif;
+      --border-radius: 8px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.2s ease;
+    }
+
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+    
+    .connection-status {
+        font-weight: 500;
+        color: var(--color-text-light);
+    }
+
+    .toolbar {
+      margin-bottom: 20px;
+    }
+
+    #searchInput {
+      width: 100%;
+      max-width: 400px;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+    }
+     #searchInput:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+    }
+
+    .table-container {
+        overflow-x: auto; /* Para responsividade em telas pequenas */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-surface);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: middle;
+    }
+    
+    thead th {
+      background-color: #f1f3f5;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    /* ----------------------- */
+    /* Componentes da Tabela */
+    /* ----------------------- */
+.status-badge {
+  display: inline-block;
+  min-width: 80px;
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.95em;
+  text-align: center;
+  margin-top: 2px;
+  background: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+  letter-spacing: 1px;
+}
+
+.status-badge.status-enviado        { background: #e7f1ff; color: #0052cc; border-color: #b6d0fa; }
+.status-badge.status-delivered      { background: #e3fceb; color: #218838; border-color: #8de4b5; }
+.status-badge.status-read           { background: #fff8e1; color: #b48809; border-color: #ffe066; }
+.status-badge.status-desconhecido   { background: #f4f4f4; color: #555; border-color: #ccc; }
+.status-badge.status-erro, 
+.status-badge.status-failed         { background: #fdecea; color: #c82333; border-color: #f5c6cb; }
+    
+    .media-thumbnail {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    .media-thumbnail:hover {
+        transform: scale(1.1);
+    }
+
+    /* ---------------- */
+    /* Modal para Mídia */
+    /* ---------------- */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none; /* Inicialmente oculto */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 20px;
+    }
+
+    .modal-content {
+        background: var(--color-surface);
+        padding: 24px;
+        border-radius: var(--border-radius);
+        max-width: 90vw;
+        max-height: 90vh;
+        text-align: center;
+        position: relative;
+    }
+
+    .modal-content img {
+        max-width: 100%;
+        max-height: 70vh;
+        display: block;
+        margin: 0 auto 16px;
+        border-radius: var(--border-radius);
+    }
+    
+    .modal-caption {
+        font-size: 1.1rem;
+        color: var(--color-text-light);
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--color-text-light);
+        cursor: pointer;
+    }
+    .modal-close:hover {
+        color: var(--color-text);
+    }
+
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Histórico de Disparos</h1>
+      <p class="connection-status"><strong>Número conectado:</strong> <%= numeroConectado %> | <strong>Token:</strong> <%= token %></p>
+    </header>
+
+    <% if (disparos.length === 0) { %>
+      <p>Nenhum disparo registrado para este token.</p>
+    <% } else { %>
+      <div class="toolbar">
+        <input type="search" id="searchInput" placeholder="🔎 Buscar por número, tipo, status...">
+      </div>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Data/Hora</th>
+              <th>Número</th>
+              <th>Tipo</th>
+              <th>Detalhes</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="disparosTableBody">
+            <% disparos.forEach(d => { %>
+              <tr>
+                <td class="data-formatar"><%= d.timestamp %></td>
+                <td><%= d.number %></td>
+                <td><%= d.tipo %></td>
+                <td>
+                  <% if (d.tipo === 'midia' && d.file) { %>
+                    <img src="<%= d.file %>" 
+                         alt="Ver imagem" 
+                         class="media-thumbnail" 
+                         data-full-src="<%= d.file %>"
+                         data-caption="<%= d.legenda || 'Sem legenda' %>">
+                  <% } else { %>
+                    <%= d.template || 'N/A' %>
+                  <% } %>
+                </td>
+                <td>
+                  <span class="status-badge status-<%= d.status ? d.status.toLowerCase() : 'desconhecido' %>">
+                    <%= d.status || 'Desconhecido' %>
+                  </span>
+                  <% if (d.statusTimestamp) { %>
+                    <br>
+                    <span style="font-size:0.8em;color:#999"><%= d.statusTimestamp %></span>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </main>
+  
+  <div id="mediaModal" class="modal-overlay">
+      <div class="modal-content">
+          <span class="modal-close" id="modalCloseButton">&times;</span>
+          <img id="modalImage" src="" alt="Imagem do disparo">
+          <div id="modalCaption" class="modal-caption"></div>
+      </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    
+      // --- 1. Lógica da Busca em Tempo Real ---
+      const searchInput = document.getElementById('searchInput');
+      const tableBody = document.getElementById('disparosTableBody');
+      if (searchInput && tableBody) {
+        const rows = tableBody.getElementsByTagName('tr');
+
+        searchInput.addEventListener('input', () => {
+          const searchTerm = searchInput.value.toLowerCase();
+          
+          for (const row of rows) {
+            const rowText = row.textContent.toLowerCase();
+            if (rowText.includes(searchTerm)) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          }
+        });
+      }
+
+      // --- 2. Lógica para Formatação de Data ---
+      function formatarData(timestamp) {
+        if (!timestamp) return 'Data inválida';
+        // Tenta criar uma data. Se o timestamp for numérico (segundos/ms), multiplica.
+        const date = new Date(isNaN(timestamp) ? timestamp : timestamp * 1000);
+        if (isNaN(date.getTime())) return 'Data inválida';
+        
+        return date.toLocaleString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+      }
+
+      const dateCells = document.querySelectorAll('.data-formatar');
+      dateCells.forEach(cell => {
+          cell.textContent = formatarData(cell.textContent.trim());
+      });
+
+      // --- 3. Lógica do Modal de Mídia ---
+      const modal = document.getElementById('mediaModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+      const closeButton = document.getElementById('modalCloseButton');
+
+      if(modal) {
+        tableBody.addEventListener('click', (event) => {
+            if (event.target.classList.contains('media-thumbnail')) {
+                const thumbnail = event.target;
+                modalImage.src = thumbnail.dataset.fullSrc;
+                modalCaption.textContent = thumbnail.dataset.caption;
+                modal.style.display = 'flex';
+            }
+        });
+
+        // Funções para fechar o modal
+        const closeModal = () => {
+            modal.style.display = 'none';
+        }
+
+        closeButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            // Fecha se clicar fora do conteúdo do modal
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>

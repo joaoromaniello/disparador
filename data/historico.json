@@ -1,0 +1,97 @@
+{
+  "22": [
+    {
+      "number": "31231231",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "erro",
+      "messageId": null,
+      "errorMessage": "Request failed with status code 401",
+      "timestamp": "2025-07-28T01:02:30.898Z"
+    }
+  ],
+  "8372e9b4-3c28-4820-9aa1-f1af47425f2a": [
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "manual",
+      "status": "Delivered",
+      "messageId": "3EB0E6F5130E14728C06DE",
+      "timestamp": "2025-07-27T22:42:23.206Z",
+      "statusTimestamp": "2025-07-27T22:42:24Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "manual",
+      "messageId": "3EB0245DC1FB29CB871874",
+      "timestamp": "2025-07-27T22:47:34.649Z",
+      "statusTimestamp": "2025-07-27T22:57:18Z"
+    },
+    {
+      "number": "DASDA",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "erro",
+      "messageId": null,
+      "errorMessage": "Request failed with status code 500",
+      "timestamp": "2025-07-27T22:55:10.678Z"
+    },
+    {
+      "number": "DASDA",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "erro",
+      "messageId": null,
+      "errorMessage": "Request failed with status code 500",
+      "timestamp": "2025-07-27T22:55:17.215Z"
+    },
+    {
+      "number": "DASDA",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "erro",
+      "messageId": null,
+      "errorMessage": "Request failed with status code 500",
+      "timestamp": "2025-07-27T22:55:17.866Z"
+    },
+    {
+      "number": "dasdas",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "erro",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "dd",
+      "errorMessage": "Request failed with status code 500",
+      "timestamp": "2025-07-27T22:56:56.099Z"
+    },
+    {
+      "number": "dasdas",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "erro",
+      "messageId": null,
+      "errorMessage": "Request failed with status code 500",
+      "timestamp": "2025-07-28T00:58:38.704Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB06A8C71A3EE2B30DCB2",
+      "timestamp": "2025-07-28T00:58:44.391Z",
+      "statusTimestamp": "2025-07-28T00:58:50Z"
+    }
+  ],
+  "2bfb5e3e-50cd-4d7b-b7e4-a1d63e47ccd5": [
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "manual",
+      "messageId": "3EB0F6E6F7EA094CA73A02",
+      "timestamp": "2025-07-28T00:51:59.826Z",
+      "statusTimestamp": "2025-07-28T00:52:00Z"
+    }
+  ]
+}

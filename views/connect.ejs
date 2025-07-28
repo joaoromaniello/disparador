@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+  }
+
+  h1, h2 {
+    color: #004aad;
+  }
+
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+
+  label {
+    display: block;
+    margin-top: 16px;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="url"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  button {
+    background-color: #004aad;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: #003a91;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  th, td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f4f6;
+    font-weight: 600;
+    color: #004aad;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  img {
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .checkbox-group label {
+    margin-top: 4px;
+    font-weight: normal;
+  }
+</style>
+  <title>Escaneie o QR Code</title>
+  <script>
+    async function verificarStatus() {
+      const response = await fetch('/instance/status?token=<%= token %>');
+      const data = await response.json();
+      if (data.connected) {
+        window.location.href = '/disparo?token=<%= token %>';
+      }
+    }
+    setInterval(verificarStatus, 3000);
+  </script>
+</head>
+<body>
+  <h1>Escaneie o QR Code da instância <%= name %></h1>
+
+  <% if (qrcode) { %>
+    <img src="<%= qrcode %>" alt="QR Code" />
+  <% } else { %>
+    <p>Erro ao obter QR Code</p>
+  <% } %>
+
+  <% if (usuariosConectados && usuariosConectados.length > 0) { %>
+  <h2>Usuários conectados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Token</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% usuariosConectados.forEach(u => { %>
+        <tr>
+          <td><%= u.numeroConectado %></td>
+          <td style="font-size:0.9em"><%= u.token %></td>
+          <td>
+            <a href="/disparo?token=<%= u.token %>" target="_blank">
+              <button>Ir para Disparo</button>
+            </a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+</body>
+</html>
