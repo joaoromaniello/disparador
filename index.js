@@ -42,9 +42,10 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   const dadosInstancias = carregarArquivo(paths.instancias);
-  const usuariosConectados = Object.entries(dadosInstancias).map(([token, numero]) => ({
+  const usuariosConectados = Object.entries(dadosInstancias).map(([token, obj]) => ({
     token,
-    numeroConectado: numero
+    numeroConectado: obj.number || 'Não conectado',
+    instanceName: obj.instanceName || ''
   }));
   res.render('index', { usuariosConectados });
 });
@@ -52,31 +53,38 @@ app.get('/', (req, res) => {
 app.post('/init', async (req, res) => {
   try {
     const { nome } = req.body;
-
     let dadosInstancias = carregarArquivo(paths.instancias) || {};
 
-    if (dadosInstancias[nome]) {
-      const token = dadosInstancias[nome];
-      const status = await checarStatusInstancia(token);
+    let tokenExistente = Object.keys(dadosInstancias).find(token => dadosInstancias[token].instanceName === nome);
 
+    if (tokenExistente) {
+      const status = await checarStatusInstancia(tokenExistente);
+      const numeroConectado = dadosInstancias[tokenExistente].number || "Não conectado";
       if (status.instance?.status === 'connected') {
-        const numeroConectado = dadosInstancias[token] || "Não conectado";
-        return res.render('disparo', { token , numeroConectado });
+        return res.render('disparo', { token: tokenExistente, numeroConectado });
       } else {
-        return res.redirect(`/connect?token=${token}&name=${nome}`);
+        return res.redirect(`/connect?token=${tokenExistente}&name=${nome}`);
       }
     }
 
+    // Cria nova instância
     const data = await criarInstancia(nome);
     const token = data.token;
 
-    dadosInstancias[nome] = token;
+    // Salva no novo formato
+    dadosInstancias[token] = { instanceName: nome, number: null };
     salvarArquivo(paths.instancias, dadosInstancias);
 
     const status = await checarStatusInstancia(token);
+    let numeroConectado = "Não conectado";
+    if (status.instance?.owner) {
+      dadosInstancias[token].number = status.instance.owner;
+      salvarArquivo(paths.instancias, dadosInstancias);
+      numeroConectado = status.instance.owner;
+    }
+
     if (status.instance?.status === 'connected') {
-    const numeroConectado = dadosInstancias[token] || "Não conectado";
-      return res.render('disparo', { token , numeroConectado });
+      return res.render('disparo', { token, numeroConectado });
     } else {
       return res.redirect(`/connect?token=${token}&name=${nome}`);
     }
@@ -86,24 +94,25 @@ app.post('/init', async (req, res) => {
 });
 
 
+
 app.get('/connect', async (req, res) => {
   try {
     const { token, name } = req.query;
     const conexao = await conectarInstancia(token);
     const status = await checarStatusInstancia(token);
 
-    // Carrega todos os usuários conectados do arquivo de instâncias
-    const dadosInstancias = carregarArquivo(paths.instancias); // token → numero
-    const usuariosConectados = Object.entries(dadosInstancias).map(([token, numero]) => ({
+    const dadosInstancias = carregarArquivo(paths.instancias); // token -> {number, instanceName}
+    const usuariosConectados = Object.entries(dadosInstancias).map(([token, data]) => ({
       token,
-      numeroConectado: numero
+      numeroConectado: data.number || "Não conectado",
+      instanceName: data.instanceName
     }));
 
     if (status.connected) {
       res.redirect(`/disparo?token=${token}`);
     } else {
       const qrcode = conexao.qrcode || (conexao.instance && conexao.instance.qrcode) || null;
-      res.render('connect', { token, name, qrcode, usuariosConectados }); 
+      res.render('connect', { token, name, qrcode, usuariosConectados });
     }
   } catch (e) {
     res.status(500).send('Erro ao conectar: ' + e.message);
@@ -134,7 +143,7 @@ app.get('/instance/status', async (req, res) => {
 app.get('/disparo', (req, res) => {
   const { token } = req.query;
   const dadosInstancias = carregarArquivo(paths.instancias);
-  const numeroConectado = dadosInstancias[token] || "Não conectado";
+  const numeroConectado = dadosInstancias[token]?.number || "Não conectado";
   console.log(numeroConectado)
   res.render('disparo', { token, numeroConectado });
 });

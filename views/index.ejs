@@ -1,35 +1,262 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Criar instância</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Instâncias</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ------------------- */
+    /* Variáveis de Tema  */
+    /* ------------------- */
+    :root {
+      --color-primary: #0052cc;
+      --color-primary-dark: #0041a3;
+      --color-secondary: #007bff;
+      --color-background: #f8f9fa;
+      --color-surface: #ffffff;
+      --color-text: #343a40;
+      --color-text-light: #6c757d;
+      --color-border: #dee2e6;
+      --font-family: 'Inter', sans-serif;
+      --border-radius: 8px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition-speed: 0.2s ease;
+    }
+
+    /* ----------------- */
+    /* Estilos Globais  */
+    /* ----------------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1, h2 {
+      color: var(--color-primary);
+      margin-bottom: 24px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 32px; margin-top: 40px;}
+
+    /* -------------------------- */
+    /* Formulário de Criação      */
+    /* -------------------------- */
+    .create-form {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background-color: var(--color-surface);
+        padding: 24px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+    .create-form input[type="text"] {
+        flex-grow: 1;
+        padding: 12px;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    }
+     .create-form input[type="text"]:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+    }
+    .create-form button {
+        background-color: var(--color-primary);
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color var(--transition-speed);
+    }
+    .create-form button:hover {
+        background-color: var(--color-primary-dark);
+    }
+
+    /* -------------------- */
+    /* Tabela de Instâncias */
+    /* -------------------- */
+    .table-container {
+        overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-surface);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: middle;
+    }
+    thead th {
+      background-color: #f1f3f5;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .token-cell {
+        font-family: monospace;
+        font-size: 0.9em;
+        color: var(--color-text-light);
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* -------------------- */
+    /* Botões de Ação       */
+    /* -------------------- */
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .action-button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        transition: background-color var(--transition-speed), transform var(--transition-speed);
+    }
+    
+    .action-button:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn-primary {
+        background-color: var(--color-secondary);
+        color: white;
+    }
+    .btn-primary:hover {
+        background-color: #0069d9;
+    }
+    
+    .btn-secondary {
+        background-color: #e9ecef;
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+    }
+     .btn-secondary:hover {
+        background-color: #dee2e6;
+    }
+
+  </style>
 </head>
 <body>
-  <h1>Criar nova instância</h1>
-  <form method="POST" action="/init">
-    <input type="text" name="nome" placeholder="Nome da instância" required />
-    <button type="submit">Criar</button>
-  </form>
+  <main class="container">
+    <h1>Criar Nova Instância</h1>
+    
+    <form method="POST" action="/init" class="create-form">
+      <input type="text" name="nome" placeholder="Nome da instância (ex: minha-loja)" required />
+      <button type="submit">Criar</button>
+    </form>
 
-  <% if (usuariosConectados && usuariosConectados.length > 0) { %>
-    <h2>Usuários conectados</h2>
-    <table border="1" cellpadding="8" style="margin-top: 24px;">
-      <tr>
-        <th>Número conectado</th>
-        <th>Token</th>
-        <th>Ação</th>
-      </tr>
-      <% usuariosConectados.forEach(u => { %>
-        <tr>
-          <td><%= u.numeroConectado %></td>
-          <td style="font-size:0.95em"><%= u.token %></td>
-          <td>
-            <a href="/disparo?token=<%= u.token %>" target="_blank">
-              <button type="button">Disparar</button>
-            </a>
-          </td>
-        </tr>
-      <% }) %>
-    </table>
-  <% } %>
+    <% if (usuariosConectados && usuariosConectados.length > 0) { %>
+      <h2>Instâncias Conectadas</h2>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome da Instância</th>
+              <th>Número Conectado</th>
+              <th>Token</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% usuariosConectados.forEach(u => { %>
+              <tr>
+                <td><%= u.instanceName %></td>
+                <td><%= u.numeroConectado || 'N/A' %></td>
+                <td>
+                  <div class="token-cell" id="token-<%= u.instanceName %>">
+                    <%= u.token %>
+                  </div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="/disparo?token=<%= u.token %>" target="_blank" class="action-button btn-primary">
+                      Disparar
+                    </a>
+                    <button type="button" class="action-button btn-secondary copy-btn" data-token-id="token-<%= u.instanceName %>">
+                      📋 Copiar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const copyButtons = document.querySelectorAll('.copy-btn');
+
+        copyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tokenId = button.dataset.tokenId;
+                const tokenElement = document.getElementById(tokenId);
+                const tokenText = tokenElement.innerText;
+
+                // Usa a API do Clipboard para copiar o texto
+                navigator.clipboard.writeText(tokenText).then(() => {
+                    // Feedback para o usuário
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '✅ Copiado!';
+                    button.disabled = true;
+
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }, 2000); // Volta ao normal depois de 2 segundos
+                }).catch(err => {
+                    console.error('Erro ao copiar o token: ', err);
+                    alert('Não foi possível copiar o token.');
+                });
+            });
+        });
+    });
+  </script>
 </body>
 </html>
