@@ -224,6 +224,7 @@ app.post('/disparo/midia', async (req, res) => {
       status: 'enviado',
       file,
       legenda: text,
+      messageId: resposta.messageid || resposta.messageId || null, // 👈 salva o id
       timestamp: new Date().toISOString()
     });
 
@@ -246,6 +247,7 @@ app.post('/disparo/midia', async (req, res) => {
       status: 'erro',
       file,
       legenda: text,
+      messageId: null, // não tem id em erro
       errorMessage: e.message,
       timestamp: new Date().toISOString()
     });
@@ -297,30 +299,57 @@ const statusMensagens = []; // (ou use Map/objeto se quiser por token/id depois)
 app.post('/webhook', express.json(), (req, res) => {
   const evento = req.body;
 
+  // LOG PRINCIPAL DO WEBHOOK - imprime tudo em detalhes
+  console.log('\n[WEBHOOK] NOVO EVENTO RECEBIDO:');
+  console.log(JSON.stringify(evento, null, 2)); // loga o objeto inteiro
+
+  // Log dos campos principais para leitura rápida
+  console.log('→ EventType:', evento.EventType);
+  console.log('→ type:', evento.type);
+  console.log('→ token:', evento.token?.slice?.(0, 8) + '...' || evento.token);
+  if (evento.event?.MessageIDs) {
+    console.log('→ MessageIDs:', evento.event.MessageIDs.join(', '));
+  }
+
+  // Só tenta atualizar status se state for válido e não vazio
+  const estado = evento.state || evento.event?.State;
   if (
     evento.EventType === "messages_update" &&
     evento.type === "ReadReceipt" &&
-    Array.isArray(evento.event.MessageIDs)
+    Array.isArray(evento.event.MessageIDs) &&
+    estado && estado !== "undefined" && estado !== ""
   ) {
     const token = evento.token;
     const messageIds = evento.event.MessageIDs;
 
-    // Para cada ID recebido, atualize o histórico desse token
     const historico = historicoDisparos.get(token) || [];
     let atualizou = false;
+    let atualizadas = [];
 
     messageIds.forEach(id => {
-      // Procura mensagem com esse messageId e atualiza status
       const msg = historico.find(d => d.messageId === id);
       if (msg) {
-        msg.status = evento.state; // 'Delivered', 'Read', etc
+        msg.status = estado; // só atualiza se o estado for válido
         msg.statusTimestamp = evento.event.Timestamp;
         atualizou = true;
+        atualizadas.push(id);
       }
     });
 
-    if (atualizou) salvarHistorico(historicoDisparos);
+    if (atualizou) {
+      salvarHistorico(historicoDisparos);
+      console.log(`[WEBHOOK] Mensagens atualizadas: ${atualizadas.join(', ')} | Novo status: ${estado}`);
+    } else {
+      console.log('[WEBHOOK] Nenhuma mensagem do histórico foi encontrada para atualizar.');
+    }
+  } else {
+    if (!estado || estado === "undefined" || estado === "") {
+      console.warn('[WEBHOOK] Estado do evento ("state") veio vazio ou indefinido, status não atualizado!');
+    } else {
+      console.log('[WEBHOOK] Evento não é de ReadReceipt messages_update, ignorado.');
+    }
   }
 
   res.status(200).json({ ok: true });
 });
+

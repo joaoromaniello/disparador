@@ -308,6 +308,10 @@
             
             <div id="listaNumeros" style="display: none;">
                 <p>Selecione os contatos da lista:</p>
+                    <div class="checkbox-control">
+                      <input type="checkbox" id="selectAllCheckbox">
+                      <label for="selectAllCheckbox"><strong>Selecionar todos</strong></label>
+                  </div>
                 <div class="checkbox-control">
                     <input type="checkbox" class="numeroCheckbox" value="5516992337024">
                     <label>João</label>
@@ -316,10 +320,126 @@
                     <input type="checkbox" class="numeroCheckbox" value="5534984277746">
                     <label>Maria</label>
                 </div>
-                <div class="checkbox-control">
-                    <input type="checkbox" class="numeroCheckbox" value="5534984111111">
-                    <label>Teste</label>
-                </div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111111">
+    <label>Teste 1</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111112">
+    <label>Teste 2</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111113">
+    <label>Teste 3</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111114">
+    <label>Teste 4</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111115">
+    <label>Teste 5</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111116">
+    <label>Teste 6</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111117">
+    <label>Teste 7</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111118">
+    <label>Teste 8</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111119">
+    <label>Teste 9</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111120">
+    <label>Teste 10</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111121">
+    <label>Teste 11</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111122">
+    <label>Teste 12</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111123">
+    <label>Teste 13</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111124">
+    <label>Teste 14</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111125">
+    <label>Teste 15</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111126">
+    <label>Teste 16</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111127">
+    <label>Teste 17</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111128">
+    <label>Teste 18</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111129">
+    <label>Teste 19</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111130">
+    <label>Teste 20</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111131">
+    <label>Teste 21</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111132">
+    <label>Teste 22</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111133">
+    <label>Teste 23</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111134">
+    <label>Teste 24</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111135">
+    <label>Teste 25</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111136">
+    <label>Teste 26</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111137">
+    <label>Teste 27</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111138">
+    <label>Teste 28</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111139">
+    <label>Teste 29</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111140">
+    <label>Teste 30</label>
+</div>
             </div>
 
             <div class="form-group">
@@ -390,6 +510,13 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => toast.remove(), 500); // Remove from DOM after animation
     }, 4000);
   }
+
+        const selectAll = document.getElementById('selectAllCheckbox');
+      selectAll?.addEventListener('change', function() {
+        const allChecks = document.querySelectorAll('.numeroCheckbox');
+        allChecks.forEach(cb => cb.checked = selectAll.checked);
+      });
+
 
   // ------------------------------------
   // Lógica das Abas
@@ -498,8 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = Object.fromEntries(formData.entries());
     apiRequest('/disparo/midia', data);
   });
-  
-
+      
 async function apiRequest(endpoint, body) {
   try {
     const res = await fetch(endpoint, {
@@ -541,6 +667,7 @@ async function apiRequest(endpoint, body) {
 
 
 });
+
 </script>
 
 </body>
