@@ -33,6 +33,8 @@ const {
   envioEmMassa
 } = require('./services/uazapi');
 const { SourceTextModule } = require('vm');
+const PORT = 3000;
+const statusMensagens = []; // (ou use Map/objeto se quiser por token/id depois)
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -93,8 +95,6 @@ app.post('/init', async (req, res) => {
     res.status(500).send('Erro ao criar/conectar instância: ' + e.message);
   }
 });
-
-
 
 app.get('/connect', async (req, res) => {
   try {
@@ -290,12 +290,9 @@ app.post('/disparo/massa', async (req, res) => {
   }
 });
 
-const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
-
-const statusMensagens = []; // (ou use Map/objeto se quiser por token/id depois)
 
 app.post('/webhook', express.json(), (req, res) => {
   const evento = req.body;
