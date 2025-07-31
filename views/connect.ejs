@@ -15,39 +15,25 @@
   </script>
 </head>
 <body>
-  <h1>Escaneie o QR Code da instância <%= name %></h1>
+  <div class="header-bar">
+    Conectar WhatsApp (QR Code)
+  </div>
+  <div class="qr-card">
+    <div class="qr-instruction">
+      <h1>Escaneie o QR Code</h1>
+      <p>Abra o WhatsApp, toque nos 3 pontinhos &gt; Aparelhos conectados &gt; Conectar novo aparelho.<br>
+      Escaneie o QR code abaixo para conectar esta instância.
+      </p>
+    </div>
 
-  <% if (qrcode) { %>
-    <img src="<%= qrcode %>" alt="QR Code" />
-  <% } else { %>
-    <p>Erro ao obter QR Code</p>
-  <% } %>
-
-  <% if (usuariosConectados && usuariosConectados.length > 0) { %>
-  <h2>Usuários conectados</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Número</th>
-        <th>Token</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% usuariosConectados.forEach(u => { %>
-        <tr>
-          <td><%= u.numeroConectado %></td>
-          <td style="font-size:0.9em"><%= u.token %></td>
-          <td>
-            <a href="/disparo?token=<%= u.token %>" target="_blank">
-              <button>Ir para Disparo</button>
-            </a>
-          </td>
-        </tr>
-      <% }) %>
-    </tbody>
-  </table>
-<% } %>
-
+    <% if (qrcode) { %>
+      <img src="<%= qrcode %>" alt="QR Code do WhatsApp" />
+      <div class="status-bar">Aguardando leitura...</div>
+    <% } else { %>
+      <div class="error-message">
+        Erro ao obter QR Code. Atualize ou tente conectar novamente.
+      </div>
+    <% } %>
+  </div>
 </body>
 </html>

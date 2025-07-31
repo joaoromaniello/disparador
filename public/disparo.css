@@ -43,25 +43,49 @@
     /* --------------- */
     /* Cabeçalho     */
     /* --------------- */
-    header {
-      margin-bottom: 24px;
-    }
+header {
+  background-color: var(--color-surface);
+  padding: 20px 24px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
 
-    h1 {
-      font-size: 2rem;
-      color: var(--color-primary);
-      margin-bottom: 8px;
-    }
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  flex-grow: 1;
+}
 
-    .connection-status {
-      font-weight: 500;
-      color: var(--color-text-light);
-      background-color: var(--color-secondary);
-      padding: 4px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      font-size: 0.9rem;
-    }
+.connection-status {
+  background-color: var(--color-secondary);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.logout-button {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.logout-button:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
 
     /* ------------------- */
     /* Estrutura de Abas  */

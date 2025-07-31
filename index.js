@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
-
+const axios = require('axios');
 // Importações primeiro
 const {
   carregarArquivo,
@@ -13,10 +13,6 @@ const {
   salvarInstancias,
   salvarHistorico
 } = require('./utils/persistencia');
-
-// Inicialização segura dos Maps
-const dadosInstancias = carregarArquivo(paths.instancias) || {};
-const instanciaCache = new Map(Object.entries(dadosInstancias));
 
 const dadosHistorico = carregarArquivo(paths.historico) || {};
 const historicoDisparos = new Map(
@@ -43,14 +39,40 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  const dadosInstancias = carregarArquivo(paths.instancias);
-  const usuariosConectados = Object.entries(dadosInstancias).map(([token, obj]) => ({
-    token,
-    numeroConectado: obj.number || 'Não conectado',
-    instanceName: obj.instanceName || ''
-  }));
-  res.render('index', { usuariosConectados });
+
+app.get('/', async (req, res) => {
+  try {
+    const url = process.env.UAZAPI_BASE_URL + '/instance/all';
+    const adminToken = process.env.ADMIN_TOKEN;
+
+    const response = await axios.get(url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'admintoken': adminToken
+      }
+    });
+
+
+      const usuariosConectados = response.data.map(inst => ({
+        token: inst.token,
+        numeroConectado: inst.owner || 'Não conectado',
+        instanceName: inst.name || inst.systemName || '(sem nome)',
+        nomeWhatsapp: inst.profileName || '-',
+        status: inst.status 
+      }));
+    res.render('index', { usuariosConectados , uazapiBaseUrl: process.env.UAZAPI_BASE_URL});
+
+  } catch (err) {
+    console.error('Erro ao buscar instâncias UAZAPI:', err.message);
+    const dadosInstancias = carregarArquivo(paths.instancias);
+    const usuariosConectados = Object.entries(dadosInstancias).map(([token, obj]) => ({
+      token,
+      numeroConectado: obj.number || 'Não conectado',
+      instanceName: obj.instanceName || ''
+    }));
+    res.render('index', { usuariosConectados });
+  }
 });
 
 app.post('/init', async (req, res) => {
@@ -60,59 +82,141 @@ app.post('/init', async (req, res) => {
 
     let tokenExistente = Object.keys(dadosInstancias).find(token => dadosInstancias[token].instanceName === nome);
 
+    // Função para buscar status real da instância via API UAZAPI
+    async function getStatusApi(token) {
+      const resp = await axios.get(
+        process.env.UAZAPI_BASE_URL + '/instance/status',
+        { headers: { token } }
+      );
+      // Resposta real do UAZAPI tem .instance.status
+      return resp.data && resp.data.instance && resp.data.instance.status
+        ? resp.data.instance.status
+        : null;
+    }
+
     if (tokenExistente) {
-      const status = await checarStatusInstancia(tokenExistente);
+      // Pega status real pela API, não pelo arquivo
+      const statusReal = await getStatusApi(tokenExistente);
       const numeroConectado = dadosInstancias[tokenExistente].number || "Não conectado";
-      if (status.instance?.status === 'connected') {
+      if (statusReal === 'connected') {
         return res.render('disparo', { token: tokenExistente, numeroConectado });
       } else {
         return res.redirect(`/connect?token=${tokenExistente}&name=${nome}`);
       }
     }
 
-    // Cria nova instância
+    // Cria nova instância normalmente
     const data = await criarInstancia(nome);
     const token = data.token;
 
-    // Salva no novo formato
     dadosInstancias[token] = { instanceName: nome, number: null };
     salvarArquivo(paths.instancias, dadosInstancias);
 
-    const status = await checarStatusInstancia(token);
+    // Depois de criar, pega status real da API também
+    const statusApi = await getStatusApi(token);
     let numeroConectado = "Não conectado";
-    if (status.instance?.owner) {
-      dadosInstancias[token].number = status.instance.owner;
-      salvarArquivo(paths.instancias, dadosInstancias);
-      numeroConectado = status.instance.owner;
-    }
 
-    if (status.instance?.status === 'connected') {
+    // Se owner já estiver disponível (pode não estar logo após criar)
+    if (statusApi === 'connected') {
+      const resp = await axios.get(
+        process.env.UAZAPI_BASE_URL + '/instance/status',
+        { headers: { token } }
+      );
+      if (resp.data.instance?.owner) {
+        dadosInstancias[token].number = resp.data.instance.owner;
+        salvarArquivo(paths.instancias, dadosInstancias);
+        numeroConectado = resp.data.instance.owner;
+      }
       return res.render('disparo', { token, numeroConectado });
     } else {
       return res.redirect(`/connect?token=${token}&name=${nome}`);
     }
+
   } catch (e) {
     res.status(500).send('Erro ao criar/conectar instância: ' + e.message);
+  }
+});
+
+// Cria 300 instâncias com nomes b2list-1 ... b2list-300
+app.post('/mass-create', async (req, res) => {
+  try {
+    for(let i = 1; i <= 300; i++) {
+      const nome = `b2list-${i}`;
+      let dadosInstancias = carregarArquivo(paths.instancias) || {};
+      let existe = Object.values(dadosInstancias).find(obj => obj.instanceName === nome);
+      if (existe) continue;
+      await criarInstancia(nome);
+    }
+    res.send('300 instâncias criadas (ou já existiam)!');
+  } catch (e) {
+    res.status(500).send('Erro ao criar instâncias em massa: ' + e.message);
+  }
+});
+
+// Deleta TODAS as instâncias registradas (cuidado!)
+app.delete('/mass-delete', async (req, res) => {
+  try {
+    const dadosInstancias = carregarArquivo(paths.instancias) || {};
+    const tokens = Object.keys(dadosInstancias);
+    for(const token of tokens) {
+      try {
+        await fetch(process.env.UAZAPI_BASE_URL + '/instance', {
+          method: 'DELETE',
+          headers: {
+            Accept: 'application/json',
+            token
+          }
+        });
+      } catch {}
+    }
+    // Limpa o arquivo local também!
+    salvarArquivo(paths.instancias, {});
+    res.send('Todas as instâncias deletadas!');
+  } catch (e) {
+    res.status(500).send('Erro ao deletar todas: ' + e.message);
+  }
+});
+
+
+
+app.post('/instance/disconnect', async (req, res) => {
+  try {
+    const { token } = req.body;
+    const response = await axios.post(
+      process.env.UAZAPI_BASE_URL + '/instance/disconnect',
+      {},
+      { headers: { token } }
+    );
+    res.json({ success: true, result: response.data });
+  } catch (e) {
+    res.status(500).json({ error: e.message || 'Erro ao desconectar instância' });
   }
 });
 
 app.get('/connect', async (req, res) => {
   try {
     const { token, name } = req.query;
-    const conexao = await conectarInstancia(token);
-    const status = await checarStatusInstancia(token);
 
-    const dadosInstancias = carregarArquivo(paths.instancias); // token -> {number, instanceName}
+    let status = await checarStatusInstancia(token);
+
+    if (status.instance?.status === 'disconnected') {
+      await conectarInstancia(token);
+      await new Promise(r => setTimeout(r, 1200));
+      status = await checarStatusInstancia(token);
+    }
+
+    const qrcode = status.instance?.qrcode || null;
+
+    const dadosInstancias = carregarArquivo(paths.instancias);
     const usuariosConectados = Object.entries(dadosInstancias).map(([token, data]) => ({
       token,
       numeroConectado: data.number || "Não conectado",
       instanceName: data.instanceName
     }));
 
-    if (status.connected) {
+    if (status.connected || (status.instance && status.instance.status === 'connected')) {
       res.redirect(`/disparo?token=${token}`);
     } else {
-      const qrcode = conexao.qrcode || (conexao.instance && conexao.instance.qrcode) || null;
       res.render('connect', { token, name, qrcode, usuariosConectados });
     }
   } catch (e) {

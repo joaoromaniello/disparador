@@ -164,3 +164,16 @@
      .btn-secondary:hover {
         background-color: #dee2e6;
     }
+
+  .btn-warning {
+  background: #ffbb00;
+  color: #222;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-warning:hover {
+  background: #ffa600;
+}
