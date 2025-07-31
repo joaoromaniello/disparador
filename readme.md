@@ -30,87 +30,88 @@ projeto-uazapi/
 └── ⚙️ <b>.env</b>                 <span style="color:gray"># Arquivo de variáveis de ambiente (não versionado).</span>
 </pre>
 
-## 🔗 Fluxo e Funcionalidades Principais
+## 🧩 Arquitetura e Componentes Principais
 
-- **index.js**  
-  Arquivo principal. Sobe o servidor Express, expõe as rotas web, faz o controle dos arquivos JSON, integra com a UAZAPI e renderiza as páginas dinâmicas via EJS.
+O fluxo da aplicação é orquestrado pelos seguintes componentes:
 
-- **data/instancias.json**  
-  Guarda todas as instâncias criadas localmente, no formato:
-  {
-    "token1": { "instanceName": "minha-loja", "number": "5511999999999" },
-    "token2": { "instanceName": "lojinha", "number": "5511888888888" }
-  }
+* `🚀 index.js`
+    * **Ponto de Entrada:** Inicializa o servidor Express e orquestra a aplicação.
+    * **Roteamento:** Define e gerencia todas as rotas da API.
+    * **Controlador:** Integra os serviços da UAZAPI e a persistência de dados.
+    * **Renderização:** Utiliza o EJS para renderizar as páginas dinâmicas (`views`).
 
-- **data/historico.json**  
-  Para cada token (instância), mantém um array com todos os disparos (data, tipo, número, status, etc), inclusive falhas.
+* `🗃️ data/instancias.json`
+    * Armazena os metadados de todas as instâncias criadas. Cada instância é identificada por seu `token`.
+    * **Exemplo de estrutura:**
+      ```json
+      {
+        "token-exemplo-1": { "instanceName": "minha-loja", "number": "5511999999999" },
+        "token-exemplo-2": { "instanceName": "suporte-cliente", "number": "5511888888888" }
+      }
+      ```
 
-- **services/uazapi.js**  
-  Abstrai todas as chamadas HTTP para a UAZAPI: criar instância, conectar (QR Code), enviar mensagem, enviar mídia, disparo em massa, consultar status, deletar/desconectar, etc.
+* `🗃️ data/historico.json`
+    * Mantém um log detalhado de todos os disparos, associados a um `token` de instância.
+    * Registra informações como data, status do envio (enviado, falhou), destinatário e tipo de mensagem.
 
-- **utils/persistencia.js**  
-  Garante leitura e escrita dos arquivos JSON de modo seguro (evita corrupção, faz lock, parseia e salva atômico).
+* `🛠️ services/uazapi.js`
+    * **Camada de Serviço:** Abstrai e centraliza toda a comunicação com a API da UAZAPI.
+    * **Funcionalidades:** Inclui métodos para criar instâncias, obter QR Code, enviar mensagens (texto e mídia), realizar disparos em massa e gerenciar o status da conexão.
 
-- **views/**  
-  Templates EJS para as páginas administrativas do sistema:
-    - **index.ejs** — Lista, cria, deleta, conecta e dispara mensagens pelas instâncias.
-    - **connect.ejs** — Exibe o QR code para conexão (scan pelo WhatsApp Business Web).
-    - **disparo.ejs** — Tela principal de envio (texto, mídia, massa, agendamento, listas).
-    - **disparos.ejs** — Lista o histórico detalhado dos disparos (por instância/token).
+* `⚙️ utils/persistencia.js`
+    * **Utilitário de Dados:** Garante a leitura e escrita segura e atômica dos arquivos JSON (`instancias.json` e `historico.json`), prevenindo a corrupção de dados durante operações concorrentes.
+
+* `🖥️ views/`
+    * Contém os templates `EJS` que compõem a interface de administração:
+        * **`index.ejs`**: Painel principal para listar, criar e gerenciar todas as instâncias.
+        * **`connect.ejs`**: Página dedicada a exibir o QR Code para autenticação da sessão no WhatsApp.
+        * **`disparo.ejs`**: Formulário de envio de mensagens (texto, mídia, massa).
+        * **`disparos.ejs`**: Interface para visualizar o histórico de envios de uma instância específica.
+---
+
+## 🚦 Rotas da API (Endpoints)
+
+A seguir estão as principais rotas expostas pela aplicação.
+
+| Método | Endpoint                    | Descrição                                                                         |
+| :----- | :-------------------------- | :-------------------------------------------------------------------------------- |
+| `GET`  | `/`                         | **Página Inicial:** Lista todas as instâncias e oferece ações de gerenciamento.     |
+| `POST` | `/init`                     | **Criar Instância:** Inicia o processo de criação de uma nova instância na UAZAPI.   |
+| `GET`  | `/connect?token=[TOKEN]`    | **Conectar Instância:** Exibe o QR Code para conectar a instância ao WhatsApp.      |
+| `GET`  | `/disparo?token=[TOKEN]`    | **Painel de Envio:** Acessa o formulário de disparo para uma instância específica. |
+| `GET`  | `/:token/disparos`          | **Histórico de Envios:** Lista todos os disparos realizados pela instância do token. |
+| `POST` | `/disparo/texto`            | **Enviar Texto:** Realiza o envio de uma mensagem de texto simples.                 |
+| `POST` | `/disparo/midia`            | **Enviar Mídia:** Realiza o envio de uma imagem com legenda.                        |
+| `POST` | `/webhook`                  | **Receber Callbacks:** Endpoint para webhooks da UAZAPI (ex: status da mensagem). |
+
+### 🔒 Rotas Administrativas
+
+Estas rotas executam ações sensíveis e possuem mecanismos de segurança.
+
+| Método   | Endpoint              | Descrição                                                                         |
+| :------- | :-------------------- | :-------------------------------------------------------------------------------- |
+| `POST`   | `/instance/disconnect`| Desconecta a sessão do WhatsApp de uma instância, sem removê-la.                |
+| `DELETE` | `/instance`           | **Ação Destrutiva:** Remove permanentemente uma instância da UAZAPI.            |
+| `POST`   | `/mass-create`        | **Ação em Massa:** Cria um grande número de instâncias (requer senha).          |
+| `DELETE` | `/mass-delete`        | **⚠️ Ação Altamente Destrutiva:** Remove **TODAS** as instâncias (requer senha). |
 
 ---
 
-## 🚦 Principais Rotas/Endpoints
+## ⚠️ Pontos Importantes
 
-- `GET /`  
-  Página inicial. Lista todas as instâncias, permite criar, deletar, conectar e acessar painel de disparos.
+* **💾 Persistência de Dados**
+    * O uso de arquivos `JSON` é ideal para desenvolvimento, testes e cenários de baixo volume. Para um ambiente de produção robusto, é **fortemente recomendado** substituir a camada de persistência por um banco de dados (como PostgreSQL, MongoDB ou Redis).
 
-- `POST /init`  
-  Cria uma nova instância na UAZAPI. Se já existe, redireciona para conexão ou painel de disparos.
+* **🛡️ Segurança**
+    * O arquivo `.env` contém chaves de API e outras informações sensíveis. Ele **nunca** deve ser versionado no Git. Utilize um arquivo `.env.example` como guia para as variáveis necessárias.
+    * As rotas administrativas e de disparo em massa devem ser protegidas por autenticação em um ambiente de produção.
 
-- `GET /connect?token=...`  
-  Tela para escanear QR code e conectar a instância ao WhatsApp.
-
-- `GET /disparo?token=...`  
-  Painel de envio de mensagens, individual ou em massa, incluindo mídia.
-
-- `GET /:token/disparos`  
-  Lista histórico de disparos daquele token/instância.
-
-- `POST /disparo/texto`  
-  Envia mensagem de texto para um ou vários contatos.
-
-- `POST /disparo/midia`  
-  Envia mídia (imagem com legenda).
-
-- `POST /disparo/massa`  
-  Disparo em massa para múltiplos contatos.
-
-- `POST /webhook`  
-  Endpoint para receber callbacks (webhooks) da UAZAPI — atualiza status de mensagens em tempo real.
-
-- **Endpoints administrativos especiais:**
-    - `POST /instance/disconnect` — Desconecta uma instância do WhatsApp.
-    - `DELETE /instance` — Remove uma instância da UAZAPI.
-    - `POST /mass-create` — Cria 300 instâncias automaticamente (apenas via front especial e senha).
-    - `DELETE /mass-delete` — Remove TODAS as instâncias (precaução: pede senha).
+* **🎨 Customização e Recursos**
+    * A interface (frontend) foi construída com EJS e pode ser facilmente customizada alterando os arquivos na pasta `views` e adicionando CSS.
+    * O projeto já oferece uma base sólida com funcionalidades essenciais como envio em massa, webhooks para status e gerenciamento de múltiplas instâncias.
 
 ---
 
-## 🗝️ Outras Observações
+### 🤝 Dúvidas e Próximos Passos
 
-- **Persistência Local**  
-  Por padrão os dados são mantidos em JSON no diretório `data/` — perfeito para teste e ambiente controlado. Para produção real, recomende-se banco de dados.
-
-- **Segurança**
-    - `.env` nunca deve ser commitado em produção (guarda tokens de admin, URL da API etc).
-    - Ações de massa requerem senha e confirmação.
-
-- **Customização**
-    - O front é facilmente adaptável, tudo via EJS e CSS custom.
-    - Suporte nativo a listas, mensagens rápidas, agendamento de disparo, envio em massa e acompanhamento de status.
-
----
-
-**Dúvidas ou ajustes? Só pedir!**
-Se quiser exemplos de payload, dicas de deploy, proteção de rotas, ou integração mais avançada, só chamar!
+Este projeto é um ponto de partida flexível. Sinta-se à vontade para abrir *issues* no repositório para relatar bugs, sugerir novas funcionalidades ou tirar dúvidas. Se precisar de ajuda com deploy, proteção de rotas ou integrações avançadas, a comunidade está aqui para ajudar!
