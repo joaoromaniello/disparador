@@ -1,35 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Criar instância</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Instâncias</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/index.css">
 </head>
 <body>
-  <h1>Criar nova instância</h1>
-  <form method="POST" action="/init">
-    <input type="text" name="nome" placeholder="Nome da instância" required />
-    <button type="submit">Criar</button>
-  </form>
+  <main class="container">
 
-  <% if (usuariosConectados && usuariosConectados.length > 0) { %>
-    <h2>Usuários conectados</h2>
-    <table border="1" cellpadding="8" style="margin-top: 24px;">
-      <tr>
-        <th>Número conectado</th>
-        <th>Token</th>
-        <th>Ação</th>
-      </tr>
-      <% usuariosConectados.forEach(u => { %>
-        <tr>
-          <td><%= u.numeroConectado %></td>
-          <td style="font-size:0.95em"><%= u.token %></td>
-          <td>
-            <a href="/disparo?token=<%= u.token %>" target="_blank">
-              <button type="button">Disparar</button>
-            </a>
-          </td>
-        </tr>
-      <% }) %>
-    </table>
-  <% } %>
+          <div style="margin: 30px 0 18px 0; display:flex; gap:16px; align-items:center;">
+        <input id="mass-secret" type="text" placeholder="Digite o segredo para liberar..." style="padding:7px 13px; border-radius:6px; border:1px solid #ccc; width:220px;">
+        <button id="btn-mass-create" class="action-button btn-warning" disabled>Criar 300 instâncias</button>
+        <button id="btn-mass-delete" class="action-button btn-danger" disabled>Deletar todas</button>
+      </div>
+
+
+    <h1>Criar Nova Instância</h1>
+    
+    <form method="POST" action="/init" class="create-form">
+      <input type="text" name="nome" placeholder="Nome da instância (ex: minha-loja)" required />
+      <button type="submit">Criar</button>
+    </form>
+
+    <% if (usuariosConectados && usuariosConectados.length > 0) { %>
+      <h2>Instâncias Conectadas</h2>
+
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome da Instância</th>
+              <th>Número Conectado</th>
+              <th>Token</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+            <tbody>
+              <% usuariosConectados.forEach(u => { %>
+                <tr>
+                  <td><%= u.instanceName %></td>
+                  <td>
+                    <%= u.numeroConectado || 'N/A' %>
+                    <% if (u.nomeWhatsapp && u.nomeWhatsapp !== '-') { %>
+                      <br><span style="font-size:0.93em;color:#888"><%= u.nomeWhatsapp %></span>
+                    <% } %>
+                  </td>
+                  <td>
+                    <div class="token-cell" id="token-<%= u.instanceName %>">
+                      <%= u.token %>
+                    </div>
+                  </td>
+                    <td>
+                      <div class="action-buttons">
+                        <% if (u.status === 'connected') { %>
+                          <a href="/disparo?token=<%= u.token %>" target="_blank" class="action-button btn-primary">
+                            Disparar
+                          </a>
+                          <button type="button"
+                            class="action-button btn-secondary disconnect-btn"
+                            data-token-id="token-<%= u.instanceName %>"
+                            data-token="<%= u.token %>"
+                            title="Desconectar esta instância">
+                            🔌 Desconectar
+                          </button>
+                          <button type="button" class="action-button btn-danger delete-btn"
+                            data-token="<%= u.token %>"
+                            title="Excluir instância">
+                            ❌
+                          </button>
+                        <% } else if (u.status === 'connecting') { %>
+                          <a href="/connect?token=<%= u.token %>&name=<%= u.instanceName %>" class="action-button btn-warning">
+                            Conectar
+                          </a>
+                          <button type="button" class="action-button btn-danger delete-btn"
+                            data-token="<%= u.token %>"
+                            title="Excluir instância">
+                            ❌
+                          </button>
+                        <% } else { %>
+                          <a href="/connect?token=<%= u.token %>&name=<%= u.instanceName %>" class="action-button btn-warning">
+                            Conectar
+                          </a>
+                          <button type="button" class="action-button btn-danger delete-btn"
+                            data-token="<%= u.token %>"
+                            title="Excluir instância">
+                            ❌
+                          </button>
+                        <% } %>
+                      </div>
+                    </td>
+                </tr>
+              <% }) %>
+            </tbody>
+        </table>
+      </div>
+    <% } %>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+          const disconnectButtons = document.querySelectorAll('.disconnect-btn');
+          
+          disconnectButtons.forEach(button => {
+            button.addEventListener('click', async () => {
+              const token = button.dataset.token;
+              if (!token) return alert('Token não encontrado.');
+              if (!confirm('Tem certeza que deseja desconectar esta instância?')) return;
+              button.disabled = true;
+              button.innerText = '⏳ Desconectando...';
+
+              try {
+                const res = await fetch('/instance/disconnect', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ token })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                  button.innerText = '✅ Desconectado!';
+                  setTimeout(() => window.location.reload(), 1000);
+                } else {
+                  throw new Error(data.error || 'Erro ao desconectar');
+                }
+              } catch (e) {
+                alert('Erro: ' + e.message);
+                button.innerText = '🔌 Desconectar';
+                button.disabled = false;
+              }
+            });
+          });
+
+          const UAZAPI_BASE_URL = "<%= uazapiBaseUrl %>";
+          const deleteButtons = document.querySelectorAll('.delete-btn');
+          deleteButtons.forEach(btn => {
+            btn.addEventListener('click', async () => {
+              if (!confirm('Tem certeza que deseja excluir esta instância?')) return;
+              const token = btn.dataset.token;
+              try {
+                const res = await fetch(UAZAPI_BASE_URL+'/instance', {
+                  method: 'DELETE',
+                  headers: {
+                    'Accept': 'application/json',
+                    'token': token
+                  }
+                });
+                if (res.ok) {
+                  alert('Instância excluída com sucesso!');
+                  location.reload();
+                } else {
+                  const msg = await res.text();
+                  alert('Erro ao excluir: ' + msg);
+                }
+              } catch (err) {
+                alert('Erro ao excluir: ' + err.message);
+              }
+            });
+          });
+
+
+
+            // --- LÓGICA DE MASSA ---
+              const inputSecret = document.getElementById('mass-secret');
+              const btnMassCreate = document.getElementById('btn-mass-create');
+              const btnMassDelete = document.getElementById('btn-mass-delete');
+              let allowMass = false;
+
+              inputSecret.addEventListener('input', () => {
+                allowMass = (inputSecret.value === 'delete-all-b2');
+                btnMassCreate.disabled = !allowMass;
+                btnMassDelete.disabled = !allowMass;
+              });
+
+              btnMassCreate.addEventListener('click', async () => {
+                if (!allowMass) return alert('Digite o segredo para liberar esta ação!');
+                if (!confirm('Tem certeza que deseja criar 300 instâncias?')) return;
+
+                btnMassCreate.disabled = true;
+                btnMassCreate.innerText = '⏳ Criando...';
+
+                try {
+                  const res = await fetch('/mass-create', { method: 'POST' });
+                  const msg = await res.text();
+                  alert(msg);
+                  window.location.reload();
+                } catch (e) {
+                  alert('Erro ao criar em massa: ' + e.message);
+                  btnMassCreate.disabled = false;
+                  btnMassCreate.innerText = 'Criar 300 instâncias';
+                }
+              });
+
+              btnMassDelete.addEventListener('click', async () => {
+                if (!allowMass) return alert('Digite o segredo para liberar esta ação!');
+                if (!confirm('Tem certeza que deseja DELETAR TODAS as instâncias? Isso é IRREVERSÍVEL!')) return;
+
+                btnMassDelete.disabled = true;
+                btnMassDelete.innerText = '⏳ Deletando...';
+
+                try {
+                  const res = await fetch('/mass-delete', { method: 'DELETE' });
+                  const msg = await res.text();
+                  alert(msg);
+                  window.location.reload();
+                } catch (e) {
+                  alert('Erro ao deletar em massa: ' + e.message);
+                  btnMassDelete.disabled = false;
+                  btnMassDelete.innerText = 'Deletar todas';
+                }
+              });
+
+
+    });
+  </script>
 </body>
 </html>

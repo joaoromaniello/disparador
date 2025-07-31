@@ -30,7 +30,6 @@ async function conectarInstancia(token) {
   return res.data;
 }
 
-
 async function checarStatusInstancia(token) {
   const res = await api.get(`/instance/status?t=${Date.now()}`, {
     headers: {
@@ -42,7 +41,6 @@ async function checarStatusInstancia(token) {
   });
   return res.data;
 }
-
 
 async function enviarTexto(token, numero, texto) {
   const res = await api.post('/send/text', {

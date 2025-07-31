@@ -4,273 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Disparador Moderno</title>
-
+  <link rel="stylesheet" href="/disparo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ------------------- */
-    /* Variáveis de Tema  */
-    /* ------------------- */
-    :root {
-      --color-primary: #0052cc;
-      --color-primary-dark: #0041a3;
-      --color-secondary: #f0f4f8;
-      --color-background: #f8f9fa;
-      --color-surface: #ffffff;
-      --color-text: #343a40;
-      --color-text-light: #6c757d;
-      --color-border: #dee2e6;
-      --color-success: #28a745;
-      --color-error: #dc3545;
-      --font-family: 'Inter', sans-serif;
-      --border-radius: 8px;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --transition-speed: 0.2s ease;
-    }
-
-    /* ----------------- */
-    /* Estilos Globais  */
-    /* ----------------- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: var(--font-family);
-      background-color: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    /* --------------- */
-    /* Cabeçalho     */
-    /* --------------- */
-    header {
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      color: var(--color-primary);
-      margin-bottom: 8px;
-    }
-
-    .connection-status {
-      font-weight: 500;
-      color: var(--color-text-light);
-      background-color: var(--color-secondary);
-      padding: 4px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      font-size: 0.9rem;
-    }
-
-    /* ------------------- */
-    /* Estrutura de Abas  */
-    /* ------------------- */
-    .tab-nav {
-      display: flex;
-      border-bottom: 1px solid var(--color-border);
-      margin-bottom: 24px;
-    }
-
-    .tab-button {
-      padding: 12px 20px;
-      cursor: pointer;
-      background-color: transparent;
-      border: none;
-      border-bottom: 3px solid transparent;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--color-text-light);
-      transition: all var(--transition-speed);
-      margin-bottom: -1px; /* Alinha com a borda inferior do container */
-    }
-
-    .tab-button:hover {
-      color: var(--color-primary);
-    }
-
-    .tab-button.active {
-      color: var(--color-primary);
-      border-bottom-color: var(--color-primary);
-    }
-
-    .tab-pane {
-      display: none;
-    }
-
-    .tab-pane.active {
-      display: block;
-    }
-
-    /* -------------------- */
-    /* Formulário e Campos */
-    /* -------------------- */
-    .form-card {
-      background: var(--color-surface);
-      padding: 28px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    input[type="text"],
-    input[type="url"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--border-radius);
-      font-family: inherit;
-      font-size: 1rem;
-      transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
-    }
-
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
-    }
-    
-    input:disabled {
-      background-color: #e9ecef;
-      cursor: not-allowed;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    
-    .primary-button {
-      background-color: var(--color-primary);
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color var(--transition-speed);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .primary-button:hover {
-      background-color: var(--color-primary-dark);
-    }
-
-    /* ----------------- */
-    /* Componentes Específicos */
-    /* ----------------- */
-    .checkbox-control {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    
-    .checkbox-control label {
-        margin-bottom: 0;
-        font-weight: 500;
-    }
-    
-    .checkbox-control input[type="checkbox"] {
-        width: 1.2em;
-        height: 1.2em;
-        accent-color: var(--color-primary);
-    }
-    
-    #listaNumeros {
-      margin-top: 16px;
-      padding: 16px;
-      border: 1px solid var(--color-secondary);
-      border-radius: var(--border-radius);
-      background-color: var(--color-background);
-    }
-    
-    #listaNumeros p {
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    /* -------------------------------- */
-    /* Sistema de Notificação (Toast) */
-    /* -------------------------------- */
-    #toast-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 90vw;
-    }
-
-    .toast {
-      padding: 16px 24px;
-      color: white;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      opacity: 0;
-      transform: translateX(100%);
-      animation: slideIn 0.3s forwards;
-    }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .toast.success {
-      background-color: var(--color-success);
-    }
-
-    .toast.error {
-      background-color: var(--color-error);
-    }
-
-    /* ----------------- */
-    /* Responsividade    */
-    /* ----------------- */
-    @media (max-width: 768px) {
-      .container {
-        margin: 20px auto;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      .form-card {
-        padding: 20px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -278,6 +15,7 @@
     <header>
       <h1>Disparador</h1>
       <p class="connection-status"><strong>Número conectado:</strong> <%= numeroConectado %></p>
+      <button class="logout-button" onclick="window.location.href='/'">VOLTAR</button>
     </header>
     <a href="/<%= token %>/disparos" target="_blank" class="primary-button" style="margin-bottom: 24px;">
       📋 Visualizar Disparos
@@ -308,6 +46,10 @@
             
             <div id="listaNumeros" style="display: none;">
                 <p>Selecione os contatos da lista:</p>
+                    <div class="checkbox-control">
+                      <input type="checkbox" id="selectAllCheckbox">
+                      <label for="selectAllCheckbox"><strong>Selecionar todos</strong></label>
+                  </div>
                 <div class="checkbox-control">
                     <input type="checkbox" class="numeroCheckbox" value="5516992337024">
                     <label>João</label>
@@ -316,10 +58,126 @@
                     <input type="checkbox" class="numeroCheckbox" value="5534984277746">
                     <label>Maria</label>
                 </div>
-                <div class="checkbox-control">
-                    <input type="checkbox" class="numeroCheckbox" value="5534984111111">
-                    <label>Teste</label>
-                </div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111111">
+    <label>Teste 1</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111112">
+    <label>Teste 2</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111113">
+    <label>Teste 3</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111114">
+    <label>Teste 4</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111115">
+    <label>Teste 5</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111116">
+    <label>Teste 6</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111117">
+    <label>Teste 7</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111118">
+    <label>Teste 8</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111119">
+    <label>Teste 9</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111120">
+    <label>Teste 10</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111121">
+    <label>Teste 11</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111122">
+    <label>Teste 12</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111123">
+    <label>Teste 13</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111124">
+    <label>Teste 14</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111125">
+    <label>Teste 15</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111126">
+    <label>Teste 16</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111127">
+    <label>Teste 17</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111128">
+    <label>Teste 18</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111129">
+    <label>Teste 19</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111130">
+    <label>Teste 20</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111131">
+    <label>Teste 21</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111132">
+    <label>Teste 22</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111133">
+    <label>Teste 23</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111134">
+    <label>Teste 24</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111135">
+    <label>Teste 25</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111136">
+    <label>Teste 26</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111137">
+    <label>Teste 27</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111138">
+    <label>Teste 28</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111139">
+    <label>Teste 29</label>
+</div>
+<div class="checkbox-control">
+    <input type="checkbox" class="numeroCheckbox" value="5534984111140">
+    <label>Teste 30</label>
+</div>
             </div>
 
             <div class="form-group">
@@ -390,6 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => toast.remove(), 500); // Remove from DOM after animation
     }, 4000);
   }
+
+        const selectAll = document.getElementById('selectAllCheckbox');
+      selectAll?.addEventListener('change', function() {
+        const allChecks = document.querySelectorAll('.numeroCheckbox');
+        allChecks.forEach(cb => cb.checked = selectAll.checked);
+      });
+
 
   // ------------------------------------
   // Lógica das Abas
@@ -498,8 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = Object.fromEntries(formData.entries());
     apiRequest('/disparo/midia', data);
   });
-  
-
+      
 async function apiRequest(endpoint, body) {
   try {
     const res = await fetch(endpoint, {
@@ -541,6 +405,7 @@ async function apiRequest(endpoint, body) {
 
 
 });
+
 </script>
 
 </body>

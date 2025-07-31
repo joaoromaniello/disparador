@@ -82,6 +82,1264 @@
       "messageId": "3EB06A8C71A3EE2B30DCB2",
       "timestamp": "2025-07-28T00:58:44.391Z",
       "statusTimestamp": "2025-07-28T00:58:50Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "enviado",
+      "messageId": "3EB0A357603683A2BD3BED",
+      "timestamp": "2025-07-28T01:26:37.552Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "5534984111111",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999000",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999001",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999002",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999003",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999004",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999005",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999006",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999007",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999008",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999009",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999010",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999011",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999012",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999013",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999014",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999015",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999016",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999017",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999018",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999019",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999020",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999021",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999022",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999023",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999024",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999025",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999026",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999027",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999028",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999029",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999030",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999031",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999032",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999033",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999034",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999035",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999036",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999037",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999038",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999039",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999040",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999041",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999042",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999043",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999044",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999045",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999046",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999047",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999048",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999049",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999050",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999051",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999052",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999053",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999054",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999055",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999056",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999057",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999058",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999059",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999060",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999061",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999062",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999063",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999064",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999065",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999066",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999067",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999068",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999069",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999070",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999071",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999072",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999073",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999074",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999075",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999076",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999077",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999078",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999079",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999080",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999081",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999082",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999083",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999084",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999085",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999086",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999087",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999088",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999089",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999090",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999091",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999092",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999093",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999094",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999095",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999096",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999097",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999098",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "55349999999099",
+      "tipo": "massa",
+      "template": "manual",
+      "status": "enfileirado",
+      "text": "testando recurso",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:47:25.560Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111111",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111112",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111113",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111114",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111115",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111116",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111117",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111118",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111119",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111120",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111121",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111122",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111123",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111124",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111125",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111126",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111127",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111128",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111129",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111130",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111131",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111132",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111133",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111134",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111135",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111136",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111137",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111138",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111139",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5534984111140",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:52:35.722Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:53:56.303Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": null,
+      "timestamp": "2025-07-28T01:53:56.303Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "enviado",
+      "messageId": "3EB047C41363B72B284633",
+      "timestamp": "2025-07-28T02:00:51.911Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "carnes",
+      "status": "erro",
+      "messageId": null,
+      "errorMessage": "Request failed with status code 503",
+      "timestamp": "2025-07-28T11:54:54.665Z"
     }
   ],
   "2bfb5e3e-50cd-4d7b-b7e4-a1d63e47ccd5": [
@@ -92,6 +1350,485 @@
       "messageId": "3EB0F6E6F7EA094CA73A02",
       "timestamp": "2025-07-28T00:51:59.826Z",
       "statusTimestamp": "2025-07-28T00:52:00Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "enviado",
+      "messageId": "3EB074590AF7F5811FA157",
+      "timestamp": "2025-07-28T01:24:32.260Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "enviado",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "Compre já!!",
+      "timestamp": "2025-07-28T01:24:52.050Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "texto",
+      "template": "carnes",
+      "messageId": "3EB0BEB74DE66047AC30DF",
+      "timestamp": "2025-07-28T02:24:20.766Z",
+      "statusTimestamp": "2025-07-28T02:25:06Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "texto",
+      "template": "carnes",
+      "status": "Delivered",
+      "messageId": "3EB0208A6858E914565489",
+      "timestamp": "2025-07-28T02:28:17.558Z",
+      "statusTimestamp": "2025-07-28T02:28:21Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "texto",
+      "template": "carnes",
+      "status": "Delivered",
+      "messageId": "3EB0E80CF4971DFD985960",
+      "timestamp": "2025-07-28T02:29:15.410Z",
+      "statusTimestamp": "2025-07-28T02:29:18Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "enviado",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "aa",
+      "timestamp": "2025-07-28T02:31:20.088Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "aa",
+      "messageId": "3EB012A120ACEBA9D17F46",
+      "timestamp": "2025-07-28T02:33:17.282Z",
+      "statusTimestamp": "2025-07-28T02:33:20Z"
+    }
+  ],
+  "2bb03f96-b95c-4223-8cd5-5a3ae0f8db8d": [
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "enviado",
+      "messageId": "3EB07EC41F2C60C8F79C16",
+      "timestamp": "2025-07-28T15:21:41.641Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "enviado",
+      "messageId": "3EB0042FD58F7B40640EBE",
+      "timestamp": "2025-07-29T18:04:23.158Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "carnes",
+      "status": "enviado",
+      "messageId": "3EB099FBEB963334EE835F",
+      "timestamp": "2025-07-29T18:04:33.251Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB03224C51E35ECBBEFE9",
+      "timestamp": "2025-07-29T18:05:33.348Z",
+      "statusTimestamp": "2025-07-29T18:05:37Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0E6B92845220E76F393",
+      "timestamp": "2025-07-29T18:40:04.962Z",
+      "statusTimestamp": "2025-07-29T18:40:08Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0658150CDA453928776",
+      "timestamp": "2025-07-29T18:40:16.946Z",
+      "statusTimestamp": "2025-07-29T18:40:19Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0B9A7BA955785DACE4A",
+      "timestamp": "2025-07-29T18:40:17.108Z",
+      "statusTimestamp": "2025-07-29T18:40:19Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB06B9FD1CFCD0738A80A",
+      "timestamp": "2025-07-29T18:40:17.458Z",
+      "statusTimestamp": "2025-07-29T18:40:20Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0CFE80A60539CC79BFC",
+      "timestamp": "2025-07-29T18:40:17.621Z",
+      "statusTimestamp": "2025-07-29T18:40:20Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0D37C5C2069D521E655",
+      "timestamp": "2025-07-29T18:40:17.784Z",
+      "statusTimestamp": "2025-07-29T18:40:20Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0A6E5FB8E65B7B2A950",
+      "timestamp": "2025-07-29T18:40:17.945Z",
+      "statusTimestamp": "2025-07-29T18:40:20Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0636CC73215D7B6F656",
+      "timestamp": "2025-07-29T18:40:18.109Z",
+      "statusTimestamp": "2025-07-29T18:40:20Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0B08A3B4C1A1B415B0D",
+      "timestamp": "2025-07-29T18:40:18.272Z",
+      "statusTimestamp": "2025-07-29T18:40:21Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB055C094185B487E2C37",
+      "timestamp": "2025-07-29T18:40:18.433Z",
+      "statusTimestamp": "2025-07-29T18:40:21Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0A8B05B13089107E8D1",
+      "timestamp": "2025-07-29T18:40:18.640Z",
+      "statusTimestamp": "2025-07-29T18:40:21Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0CFE17EDA41F6942518",
+      "timestamp": "2025-07-29T18:40:18.803Z",
+      "statusTimestamp": "2025-07-29T18:40:21Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB05BB23030D1ED6FA716",
+      "timestamp": "2025-07-29T18:40:21.786Z",
+      "statusTimestamp": "2025-07-29T18:40:24Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0C840C9AF19871B142D",
+      "timestamp": "2025-07-29T18:40:21.947Z",
+      "statusTimestamp": "2025-07-29T18:40:24Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0F5449C60B5A6E10B2D",
+      "timestamp": "2025-07-29T18:40:22.109Z",
+      "statusTimestamp": "2025-07-29T18:40:24Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0706814C680C9877AC9",
+      "timestamp": "2025-07-29T18:40:22.461Z",
+      "statusTimestamp": "2025-07-29T18:40:25Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB05C10284021CC3F6DE9",
+      "timestamp": "2025-07-29T18:40:22.630Z",
+      "statusTimestamp": "2025-07-29T18:40:25Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB08FAC698EFE5E5F8949",
+      "timestamp": "2025-07-29T18:40:24.609Z",
+      "statusTimestamp": "2025-07-29T18:40:27Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB000F27839080B0996C4",
+      "timestamp": "2025-07-29T18:40:24.772Z",
+      "statusTimestamp": "2025-07-29T18:40:27Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB04F385B0CF6B0482CF3",
+      "timestamp": "2025-07-29T18:40:24.961Z",
+      "statusTimestamp": "2025-07-29T18:40:27Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Delivered",
+      "messageId": "3EB0820B78FF61BDB0F7AA",
+      "timestamp": "2025-07-29T18:40:25.960Z",
+      "statusTimestamp": "2025-07-29T18:40:28Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB03331DC5A208ED85303",
+      "timestamp": "2025-07-29T18:40:55.710Z",
+      "statusTimestamp": "2025-07-29T18:40:59Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB0CB6340E1CA701A0870",
+      "timestamp": "2025-07-29T18:40:55.901Z",
+      "statusTimestamp": "2025-07-29T18:40:59Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB0FF49C17AF87FE2F0B4",
+      "timestamp": "2025-07-29T18:40:56.084Z",
+      "statusTimestamp": "2025-07-29T18:40:59Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB049C165794F875698F9",
+      "timestamp": "2025-07-29T18:40:56.266Z",
+      "statusTimestamp": "2025-07-29T18:40:59Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB01C52ED4EB1C833BDBC",
+      "timestamp": "2025-07-29T18:40:56.446Z",
+      "statusTimestamp": "2025-07-29T18:40:59Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB0242DB25737EBDA8215",
+      "timestamp": "2025-07-29T18:40:56.627Z",
+      "statusTimestamp": "2025-07-29T18:41:00Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB03A648E6C680CF83F34",
+      "timestamp": "2025-07-29T18:40:56.800Z",
+      "statusTimestamp": "2025-07-29T18:41:00Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Delivered",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "COMPRE",
+      "messageId": "3EB0C9A75A72D449447411",
+      "timestamp": "2025-07-29T18:40:56.978Z",
+      "statusTimestamp": "2025-07-29T18:41:00Z"
+    }
+  ],
+  "cfd401f4-ef6c-437a-a60b-69f6d92a57bb": [
+    {
+      "number": "553499470537",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "Read",
+      "messageId": "3EB02736B798FFB2DFA5B5",
+      "timestamp": "2025-07-29T18:08:35.461Z",
+      "statusTimestamp": "2025-07-29T18:08:43Z"
+    },
+    {
+      "number": "553499470537",
+      "tipo": "midia",
+      "template": "imagem_manual",
+      "status": "Read",
+      "file": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavM-2nVnS5cJV5PgcMHYoyZLE6f6eKVhugg&s",
+      "legenda": "Olá compra isso aqui!",
+      "messageId": "3EB07A6BC89A3E5BD916DF",
+      "timestamp": "2025-07-29T18:08:54.738Z",
+      "statusTimestamp": "2025-07-29T18:08:58Z"
+    },
+    {
+      "number": "5516992337024",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984277746",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984111111",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984111112",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984111113",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984111114",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984111115",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    },
+    {
+      "number": "5534984111116",
+      "tipo": "massa",
+      "template": "bebidas",
+      "status": "enfileirado",
+      "text": "🍹 Lista de Bebidas:\n- Coca-Cola\n- Heineken\n- Schweppes",
+      "scheduled_for": 1753812687821,
+      "timestamp": "2025-07-29T18:10:30.594Z"
+    }
+  ],
+  "290649e9-772d-423f-b4ca-7418f9a69146": [
+    {
+      "number": "5534984277746",
+      "tipo": "texto",
+      "template": "bebidas",
+      "status": "enviado",
+      "messageId": "3EB08917D3BA7444720F42",
+      "timestamp": "2025-07-31T19:43:00.935Z"
     }
   ]
 }
