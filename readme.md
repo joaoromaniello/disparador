@@ -4,32 +4,31 @@ Aplicação Node.js + Express para **gestão de instâncias e disparo de mensage
 
 ---
 
-## 📦 Estrutura do Projeto
+## 📂 Estrutura de Arquivos
 
+<pre>
 projeto-uazapi/
+├── 📁 <b>data</b>/
+│   ├── 📄 instancias.json  <span style="color:gray"># Armazena dados e tokens das instâncias criadas.</span>
+│   └── 📄 historico.json   <span style="color:gray"># Log completo de todos os envios de mensagens.</span>
 │
-├── 📂 data
-│   ├── instancias.json       # Armazena tokens das instâncias e dados associados (número, nome)
-│   └── historico.json        # Armazena o histórico detalhado de todos os disparos realizados
+├── 📁 <b>services</b>/
+│   └── 📄 uazapi.js        <span style="color:gray"># Módulo de integração com a API UAZAPI.</span>
 │
-├── 📂 services
-│   └── uazapi.js             # Funções de integração com a API UAZAPI (criação, conexão, disparos)
+├── 📁 <b>utils</b>/
+│   └── 📄 persistencia.js  <span style="color:gray"># Funções para leitura e escrita de arquivos JSON.</span>
 │
-├── 📂 utils
-│   └── persistencia.js       # Utilitários para ler e salvar arquivos JSON de forma segura/atômica
+├── 📁 <b>views</b>/
+│   ├── 📄 index.ejs        <span style="color:gray"># Tela inicial para listar e criar instâncias.</span>
+│   ├── 📄 connect.ejs      <span style="color:gray"># Página para escanear o QR Code de conexão.</span>
+│   ├── 📄 disparo.ejs      <span style="color:gray"># Formulário para envio de mensagens.</span>
+│   └── 📄 disparos.ejs     <span style="color:gray"># Tela para visualizar o histórico de envios.</span>
 │
-├── 📂 views                  # Templates EJS (HTML dinâmico)
-│   ├── index.ejs             # Tela inicial: cria instância, lista todas as existentes
-│   ├── connect.ejs           # Tela de conexão QR Code (scan para ativar WhatsApp)
-│   ├── disparo.ejs           # Tela de disparo de mensagens (texto e mídia)
-│   └── disparos.ejs          # Histórico dos disparos enviados por instância/token
-│
-├── index.js                  # App principal (servidor Express, rotas, integrações)
-├── package.json              # Dependências, scripts e metadados do projeto
-├── package-lock.json         # Travamento exato das dependências instaladas
-└── .env                      # Variáveis de ambiente/senhas (NÃO versionar em produção)
-
----
+├── 📜 <b>index.js</b>             <span style="color:gray"># Ponto de entrada da aplicação (Servidor Express e rotas).</span>
+├── 📦 <b>package.json</b>         <span style="color:gray"># Dependências e scripts do projeto.</span>
+├── 🗝️ <b>package-lock.json</b>    <span style="color:gray"># Versões exatas das dependências.</span>
+└── ⚙️ <b>.env</b>                 <span style="color:gray"># Arquivo de variáveis de ambiente (não versionado).</span>
+</pre>
 
 ## 🔗 Fluxo e Funcionalidades Principais
 
